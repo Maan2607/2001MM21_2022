@@ -80,4 +80,80 @@ def octact_identification(mod):
   c6=0 # overall count of octant -3
   c7=0 # overall count of octant 4
   c8=0 # overall count of octant -4
-   
+  for i in range(n):# using this for loop we will get octant
+   if (i<n-1):
+    if (oct[i]==1):
+     c1=c1+1
+    elif(oct[i]==-1):
+     c2=c2+1
+    elif(oct[i]==2):
+     c3=c3+1
+    elif(oct[i]==-2):
+     c4=c4+1
+    elif(oct[i]==3):
+     c5=c5+1
+    elif(oct[i]==-3):
+     c6=c6+1    
+    elif(oct[i]==4):
+     c7=c7+1
+    else:
+     c8=c8+1
+    i=i+1  
+ o1=[] #make a list of octant count in mod range 
+ o2=[] #make a list of octant count in mod range
+ o3=[] #make a list of octant count in mod range
+ o4=[] #make a list of octant count in mod range
+ o5=[] #make a list of octant count in mod range
+ o6=[] #make a list of octant count in mod range
+ o7=[] #make a list of octant count in mod range
+ o8=[] #make a list of octant count in mod range
+ with open('octant_input.csv', 'r') as file: # again opening the input file for count of octant in mod range
+  reader = csv.reader(file)
+  i=0
+  j=0
+  oct1=0
+  oct2=0
+  oct3=0
+  oct4=0
+  oct5=0
+  oct6=0
+  oct7=0
+  oct8=0
+  m= int((n-1)/mod) +1
+  for i in range(m):
+   s=mod*i
+   for j in range(mod):	
+    if(j+s<n-1):	                                    
+     if (oct[j+s]==1):
+      oct1=oct1+1
+     elif(oct[j+s]==-1):
+      oct2=oct2+1
+     elif(oct[j+s]==2):
+      oct3=oct3+1
+     elif(oct[j+s]==-2):
+      oct4=oct4+1
+     elif(oct[j+s]==3):
+      oct5=oct5+1
+     elif(oct[j+s]==-3):
+      oct6=oct6+1    
+     elif(oct[j+s]==4):
+      oct7=oct7+1
+     elif(oct[j+s]==-4):
+      oct8=oct8+1 
+   o1.append(oct1)
+   o2.append(oct2)
+   o3.append(oct3)
+   o4.append(oct4)
+   o5.append(oct5)
+   o6.append(oct6)
+   o7.append(oct7)
+   o8.append(oct8)
+   oct1=0
+   oct2=0
+   oct3=0
+   oct4=0
+   oct5=0
+   oct6=0
+   oct7=0
+   oct8=0
+ 
