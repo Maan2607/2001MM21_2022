@@ -183,4 +183,7 @@ def octact_identification(mod):
      j=j+1
    else:
     writer.writerow([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","","",""])			 
- 
+
+
+mod = 5000 # given input
+octact_identification(mod) # given function
