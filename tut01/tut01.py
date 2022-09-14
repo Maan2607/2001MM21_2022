@@ -66,4 +66,18 @@ def octact_identification(mod):
     else:
      oct.append(-3) 
 
- 
+ ### NOW WE WILL WRITE THE FILE
+
+
+ with open('octant_input.csv', 'r') as file: # again opening the input file for overall count of octant 
+  reader = csv.reader(file)  
+  i=0
+  c1=0 # overall count of octant 1
+  c2=0 # overall count of octant -1
+  c3=0 # overall count of octant 2
+  c4=0 # overall count of octant -2
+  c5=0 # overall count of octant 3
+  c6=0 # overall count of octant -3
+  c7=0 # overall count of octant 4
+  c8=0 # overall count of octant -4
+   
