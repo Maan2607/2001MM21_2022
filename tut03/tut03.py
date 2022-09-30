@@ -274,26 +274,26 @@ def octant_longest_subsequence_count():
  sheet= book.active    
  rows=[] 
  rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant"])
- for x in range(n-2):
+ for x in range(n-2): # appending the data in xlsx file 
   if(x==0):
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Octant","Longest Susequence Length","Count"])
-  elif x==1:  
+  elif x==1: # appending the data in xlsx file for octant 1  
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","1",a,c1])
-  elif x==2:  
+  elif x==2: # appending the data in xlsx file for octant -1 
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-1",b,c2])
-  elif x==3:  
+  elif x==3:  # appending the data in xlsx file for octant 2
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","2",c,c3])
-  elif x==4:  
+  elif x==4:  # appending the data in xlsx file for octant -2
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-2",d,c4]) 
-  elif x==5:  
+  elif x==5: # appending the data in xlsx file for octant 3 
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","3",e,c5])
-  elif x==6:  
+  elif x==6: # appending the data in xlsx file for octant -3 
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-3",f,c6])
-  elif x==7:  
+  elif x==7: # appending the data in xlsx file for octant 4 
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","4",g,c7])
-  elif x==8:  
+  elif x==8: # appending the data in xlsx file for octant -4 
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-4",h,c8])
-  else:
+  else: # appending the remaining data in xlsx file 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x]])
 
  for i in rows:
