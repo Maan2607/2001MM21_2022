@@ -48,33 +48,34 @@ def octant_longest_subsequence_count():
    oct.append(3)
   else:
    oct.append(-3)
- s1=0
- s2=0
- s3=0
- s4=0
- s5=0
- s6=0
- s7=0
- s8=0
+ s1=0 # it is used to store the longest subsequence value of octant 1
+ s2=0 # it is used to store the longest subsequence value of octant -1
+ s3=0 # it is used to store the longest subsequence value of octant 2
+ s4=0 # it is used to store the longest subsequence value of octant -2
+ s5=0 # it is used to store the longest subsequence value of octant 3
+ s6=0 # it is used to store the longest subsequence value of octant -3
+ s7=0 # it is used to store the longest subsequence value of octant 4
+ s8=0 # it is used to store the longest subsequence value of octant -4
 
- a=0
- b=0
- c=0
- d=0
- e=0
- f=0
- g=0
- h=0
+ a=0 # It will give the longest subsequence value for octant 1
+ b=0 # It will give the longest subsequence value for octant -1
+ c=0 # It will give the longest subsequence value for octant 2
+ d=0 # It will give the longest subsequence value for octant -2
+ e=0 # It will give the longest subsequence value for octant 3
+ f=0 # It will give the longest subsequence value for octant -3
+ g=0 # It will give the longest subsequence value for octant 4
+ h=0 # It will give the longest subsequence value for octant -4
 
- c1=0
- c2=0
- c3=0
- c4=0
- c5=0
- c6=0
- c7=0
- c8=0   
- for r in range(0,n-1):
+ c1=0 # It will give the count for octant 1
+ c2=0 # It will give the count for octant -1
+ c3=0 # It will give the count for octant 2
+ c4=0 # It will give the count for octant -2
+ c5=0 # It will give the count for octant 3
+ c6=0 # It will give the count for octant -3
+ c7=0 # It will give the count for octant 4
+ c8=0 # It will give the count for octant -4
+
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant 1
   if oct[r]==1 :
    s1=s1+1
    if r==n-2:
@@ -98,7 +99,7 @@ def octant_longest_subsequence_count():
      s1=0
      c1=c1+1    
 
- for r in range(0,n-1):
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant -1
   if oct[r]==-1 :
    s2=s2+1
    if r==n-2:
@@ -122,7 +123,7 @@ def octant_longest_subsequence_count():
      s2=0
      c2=c2+1   
 
- for r in range(0,n-1):
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant 2
   if oct[r]==2 :
    s3=s3+1
    if r==n-2:
@@ -146,7 +147,7 @@ def octant_longest_subsequence_count():
      s3=0
      c3=c3+1    
 
- for r in range(0,n-1):
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant -2
   if oct[r]==-2 :
    s4=s4+1
    if r==n-2:
@@ -170,7 +171,7 @@ def octant_longest_subsequence_count():
      s4=0
      c4=c4+1    
      
- for r in range(0,n-1):
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant 3
   if oct[r]==3 :
    s5=s5+1
    if r==n-2:
@@ -194,7 +195,7 @@ def octant_longest_subsequence_count():
      s5=0
      c5=c5+1    
 
- for r in range(0,n-1):
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant -3
   if oct[r]==-3 :
    s6=s6+1
    if r==n-2:
@@ -218,7 +219,7 @@ def octant_longest_subsequence_count():
      s6=0
      c6=c6+1    
 
- for r in range(0,n-1):
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant 4
   if oct[r]==4 :
    s7=s7+1
    if r==n-2:
@@ -241,8 +242,32 @@ def octant_longest_subsequence_count():
     else:
      s7=0
      c7=c7+1
- print(g,c7)        
-       
+
+ for r in range(0,n-1): # This for loop will solve the count and longest subsequence value for octant -4
+  if oct[r]==-4 :
+   s8=s8+1
+   if r==n-2:
+    if s8>a:
+     h=s8
+     s8=0
+     c8=1
+    elif h>s8:
+     s8=0
+    else:
+     s8=0
+     c8=c8+1 
+  else:
+    if s8>h:
+     h=s8
+     s8=0
+     c8=1
+    elif h>s8:
+     s8=0
+    else:
+     s8=0
+     c8=c8+1    
+  
+ print(h,c8)      
 
  from openpyxl import Workbook 
  book=Workbook()
