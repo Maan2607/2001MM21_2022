@@ -7,7 +7,7 @@ def octact_identification(mod):
  os.system('cls')
  time1 = [] # make a new list
  v1 = []    # make a new list
- u1 = []    # make a new list
+ u1 = []    # make a  new list
  w1 = []    # make a new list
  v2 = []    # make a list for difference 
  u2 = []    # make a list for difference
