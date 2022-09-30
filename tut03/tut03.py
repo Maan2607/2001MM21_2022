@@ -1,4 +1,3 @@
-#Help https://youtu.be/H37f_x4wAC0
 def octant_longest_subsequence_count():
 ###Code
 

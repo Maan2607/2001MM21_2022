@@ -345,7 +345,8 @@ def octant_transition_count(mod=5000):
       over[7][6]=over[7][6]+1
     elif oct[j+p]==-4 and oct[j+1+p]==-4:
       a8[7]=a8[7]+1  
-      over[7][7]=over[7][7]+1    
+      over[7][7]=over[7][7]+1 
+    
   if i==0 :
     r.append(over)
   req.append(a1)  # Making a 2-d Matrix req by appending eight 1-d matrix
@@ -413,7 +414,7 @@ def octant_transition_count(mod=5000):
 
  for i in rows:
   sheet.append(i)
- book.save("output_octant_transition_identify.xlsx")
+ book.save("output_octant_transition_identify1.xlsx")
 
 mod=5000
 octant_transition_count(mod)
