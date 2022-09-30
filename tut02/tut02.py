@@ -349,7 +349,7 @@ def octant_transition_count(mod=5000):
     
   if i==0 :
     r.append(over)
-  req.append(a1)  # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a1)  # Making  a 2-d Matrix req by appending eight 1-d matrix
   req.append(a2) # Making a 2-d Matrix req by appending eight 1-d matrix
   req.append(a3) # Making a 2-d Matrix req by appending eight 1-d matrix
   req.append(a4) # Making a 2-d Matrix req by appending eight 1-d matrix
