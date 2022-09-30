@@ -27,6 +27,7 @@ def octact_identification(mod):
   v_mean=np.mean(v1, dtype=np.float64) # it will give mean of v1
   u_mean=np.mean(u1, dtype=np.float64) # it will give mean of u1
   w_mean=np.mean(w1, dtype=np.float64) # it will give mean of w1
+
  with open('octant_input.csv', 'r') as file: # again opening the input file
   reader = csv.reader(file)
   m=0
@@ -66,7 +67,8 @@ def octact_identification(mod):
     else:
      oct.append(-3) 
 
- ### NOW WE WILL WRITE THE FILE
+
+    ### NOW WE WILL WRITE THE FILE
 
 
  with open('octant_input.csv', 'r') as file: # again opening the input file for overall count of octant 
@@ -79,7 +81,7 @@ def octact_identification(mod):
   c5=0 # overall count of octant 3
   c6=0 # overall count of octant -3
   c7=0 # overall count of octant 4
-  c8=0 # overall count of octant -4
+  c8=0 # overall count of octant -4	 
   for i in range(n):# using this for loop we will get octant
    if (i<n-1):
     if (oct[i]==1):
@@ -183,7 +185,5 @@ def octact_identification(mod):
      j=j+1
    else:
     writer.writerow([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","","",""])			 
-
-
 mod = 5000 # given input
 octact_identification(mod) # given function
