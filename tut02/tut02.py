@@ -94,14 +94,14 @@ def octant_transition_count(mod=5000):
  oct7=0 #making variables for using in function
  oct8=0 #making variables for using in function
 
- m= int((n-2)/mod) +1
+ m= int((n-2)/mod) +1 # m will give no.of interval
 
  for i in range(m):
   s=mod*i
   for j in range(mod):	
    if(j+s<n-1):	                                    
     if (oct[j+s]==1):
-     oct1=oct1+1
+     oct1=oct1+1 
     elif(oct[j+s]==-1):
      oct2=oct2+1
     elif(oct[j+s]==2):
@@ -133,27 +133,27 @@ def octant_transition_count(mod=5000):
   oct7=0
   oct8=0
 
- r=[]
- req=[]
- over=[[0]*8,[0]*8,[0]*8,[0]*8,[0]*8,[0]*8,[0]*8,[0]*8]
+ r=[] # it is giving full data that we need to print
+ req=[] # it will give the data 2-d matrix of respective interval
+ over=[[0]*8,[0]*8,[0]*8,[0]*8,[0]*8,[0]*8,[0]*8,[0]*8] # This is matirx of overall transition
  for i in range(0,m) :
   p=i*mod
-  a1=[0]*8
-  a2=[0]*8
-  a3=[0]*8
-  a4=[0]*8
-  a5=[0]*8
-  a6=[0]*8
-  a7=[0]*8
-  a8=[0]*8 
+  a1=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a2=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a3=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a4=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a5=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a6=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a7=[0]*8 # These list will store the value each element in 2-d matrix of different intervals
+  a8=[0]*8 # These list will store the value each element in 2-d matrix of different intervals 
   for j in range(0,mod):
    if j+p<=n-3:
     if oct[j+p]==1 and oct[j+p+1]==1 :
-      a1[0]=a1[0]+1
-      over[0][0]=over[0][0]+1
+      a1[0]=a1[0]+1 # This will keep on increasing the value of each transition in different intervals 
+      over[0][0]=over[0][0]+1 # This is for overall transitin matrix
     elif oct[j+p]==1 and oct[j+p+1]==-1:
-      a1[1]=a1[1]+1    
-      over[0][1]=over[0][1]+1
+      a1[1]=a1[1]+1  # This will keep on increasing the value of each transition in different intervals  
+      over[0][1]=over[0][1]+1 # This is for overall transitin matrix
     elif oct[j+p]==1 and oct[j+p+1]==2:
       a1[2]=a1[2]+1
       over[0][2]=over[0][2]+1
@@ -348,17 +348,18 @@ def octant_transition_count(mod=5000):
       over[7][7]=over[7][7]+1    
   if i==0 :
     r.append(over)
-  req.append(a1)  
-  req.append(a2) 
-  req.append(a3)
-  req.append(a4)
-  req.append(a5)
-  req.append(a6)
-  req.append(a7)
-  req.append(a8)
-  c=req.copy()
-  r.append(c)
-  req.clear()
+  req.append(a1)  # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a2) # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a3) # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a4) # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a5) # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a6) # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a7) # Making a 2-d Matrix req by appending eight 1-d matrix
+  req.append(a8) # Making a 2-d Matrix req by appending eight 1-d matrix
+  c=req.copy() 
+  r.append(c) # appending the req matrix in r
+  req.clear() # clearing req matrix so that new data may get store into it
+ h = ["+1","-1","+2","-2","+3","-3","+4","-4"]
  
  from openpyxl import Workbook 
  book=Workbook()
@@ -368,7 +369,6 @@ def octant_transition_count(mod=5000):
  j=0
  a=0
  b=0
- print(r)
  for x in range(n-2):
   if(x==0):
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Overall count",c1,c2,c3,c4,c5,c6,c7,c8])
@@ -379,8 +379,9 @@ def octant_transition_count(mod=5000):
    if(x==1+m):# it will work ont=ly if x=1+m
     z=j*mod 	
     y=(j+1)*mod
-    s=str(z)+"-"+str(n)		 
+    s=str(z)+"-"+str(n-2)		 
     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2]])	 
+    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Verified",c1,c2,c3,c4,c5,c6,c7,c8])
     j=j+1
    else:
     z=j*mod	
@@ -388,19 +389,31 @@ def octant_transition_count(mod=5000):
     s=str(z)+"-"+str(y)		 
     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2]])	 
     j=j+1
+  elif (x-(2+m))%9==0 and x<9*(m+1)+2+m:
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","","",""])
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","","",""])
+    if x ==2+m:
+     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","Overall transition Count","","","","","","","",""])
+     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","To","","","","","","",""])
+    else:
+     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","Mod transition Count","","","","","","","",""])
+     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",str(((x-(2+m))//9-1)*mod)+"-"+str(np.minimum(((x-(2+m))//9)*mod,n-2)),"To","","","","","","",""])
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","Count","+1","-1","+2","-2","+3","-3","+4","-4"])
+  elif x<9*(m+1)+(2+m):
+   if (x-(2+m))%9==1:
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"From",h[((x-(2+m))%9)-1],r[b][a][0],r[b][a][1],r[b][a][2],r[b][a][3],r[b][a][4],r[b][a][5],r[b][a][6],r[b][a][7]])	
+   else:
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",h[((x-(2+m))%9)-1],r[b][a][0],r[b][a][1],r[b][a][2],r[b][a][3],r[b][a][4],r[b][a][5],r[b][a][6],r[b][a][7]])
+   a=a+1
+   if a==8:
+    a=0
+    b=b+1
   else:
-   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","",""])	
-
- 
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","",""])
 
  for i in rows:
   sheet.append(i)
- book.save("output_octant_transition_identify1.xlsx")
- 
-      
- 
- 
-print("ho")
+ book.save("output_octant_transition_identify.xlsx")
 
-mod=5000
+mod=2000
 octant_transition_count(mod)
