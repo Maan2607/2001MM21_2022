@@ -75,7 +75,7 @@ def octant_longest_subsequence_count_with_range():
  c6=0 # It will give the count for octant -3
  c7=0 # It will give the count for octant 4
  c8=0 # It will give the count for octant -4
-
+ 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant 1
   if oct[r]==1 :
    s1=s1+1
@@ -99,7 +99,21 @@ def octant_longest_subsequence_count_with_range():
     else:
      s1=0
      c1=c1+1    
+ cn=0 
+ t1=[]
+ for r in range(0,n-1):  
+  if oct[r]==1:
+   if cn==0: 
+    ti1=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==a:
+   t1.append(ti1); 
+   cn=0
 
+ print(t1)  
+ 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant -1
   if oct[r]==-1 :
    s2=s2+1
@@ -122,7 +136,23 @@ def octant_longest_subsequence_count_with_range():
      s2=0
     else:
      s2=0
-     c2=c2+1   
+     c2=c2+1 
+
+ cn=0 
+ t2=[]
+ for r in range(0,n-1):  
+  if oct[r]==-1:
+   if cn==0: 
+    ti2=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==b:
+   t2.append(ti2); 
+   cn=0
+
+ print(t2)  
+       
 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant 2
   if oct[r]==2 :
@@ -147,7 +177,22 @@ def octant_longest_subsequence_count_with_range():
     else:
      s3=0
      c3=c3+1    
+ 
+ cn=0 
+ t3=[]
+ for r in range(0,n-1):  
+  if oct[r]==2:
+   if cn==0: 
+    ti3=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==c:
+   t3.append(ti3); 
+   cn=0
 
+ print(t3)  
+ 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant -2
   if oct[r]==-2 :
    s4=s4+1
@@ -171,6 +216,21 @@ def octant_longest_subsequence_count_with_range():
     else:
      s4=0
      c4=c4+1    
+
+ cn=0 
+ t4=[]
+ for r in range(0,n-1):  
+  if oct[r]==-2:
+   if cn==0: 
+    ti4=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==d:
+   t4.append(ti4); 
+   cn=0
+
+ print(t4)  
      
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant 3
   if oct[r]==3 :
@@ -195,7 +255,22 @@ def octant_longest_subsequence_count_with_range():
     else:
      s5=0
      c5=c5+1    
+ 
+ cn=0 
+ t5=[]
+ for r in range(0,n-1):  
+  if oct[r]==3:
+   if cn==0: 
+    ti5=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==e:
+   t5.append(ti5); 
+   cn=0
 
+ print(t5)  
+ 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant -3
   if oct[r]==-3 :
    s6=s6+1
@@ -219,7 +294,22 @@ def octant_longest_subsequence_count_with_range():
     else:
      s6=0
      c6=c6+1    
+ 
+ cn=0 
+ t6=[]
+ for r in range(0,n-1):  
+  if oct[r]==-3:
+   if cn==0: 
+    ti6=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==f:
+   t6.append(ti6); 
+   cn=0
 
+ print(t6)  
+ 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant 4
   if oct[r]==4 :
    s7=s7+1
@@ -244,6 +334,21 @@ def octant_longest_subsequence_count_with_range():
      s7=0
      c7=c7+1
 
+ cn=0 
+ t7=[]
+ for r in range(0,n-1):  
+  if oct[r]==4:
+   if cn==0: 
+    ti7=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==g:
+   t7.append(ti7); 
+   cn=0
+
+ print(t7)  
+ 
  for r in range(0,n-1): # This for loop will solve the count and longest subsequence length for octant -4
   if oct[r]==-4 :
    s8=s8+1
@@ -268,7 +373,21 @@ def octant_longest_subsequence_count_with_range():
      s8=0
      c8=c8+1    
        
+ cn=0 
+ t8=[]
+ for r in range(0,n-1):  
+  if oct[r]==-4:
+   if cn==0: 
+    ti8=time1[r] 
+   cn=cn+1
+  else:
+   cn=0 
+  if cn==h:
+   t8.append(ti8); 
+   cn=0
 
+ print(t8)  
+ 
  from openpyxl import Workbook 
  book=Workbook()
  sheet= book.active    
