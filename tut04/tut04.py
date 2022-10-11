@@ -386,8 +386,111 @@ def octant_longest_subsequence_count_with_range():
    t8.append(ti8); 
    cn=0
 
- print(t8)  
- 
+ print(t8) 
+ a1=[]
+ a1.append("Octant")
+ a1.append("1")
+ a1.append("Time")
+ for i in range(0,c1):
+  a1.append("")
+ a1.append("-1")
+ a1.append("Time")
+ for i in range(0,c2):
+  a1.append("")
+ a1.append("2")
+ a1.append("Time")
+ for i in range(0,c3):
+  a1.append("")
+ a1.append("-2")
+ a1.append("Time")
+ for i in range(0,c4):
+  a1.append("")
+ a1.append("3")
+ a1.append("Time")
+ for i in range(0,c5):
+  a1.append("")
+ a1.append("-3")
+ a1.append("Time")
+ for i in range(0,c6):
+  a1.append("")
+ a1.append("4")
+ a1.append("Time")
+ for i in range(0,c7):
+  a1.append("")
+ a1.append("-4")
+ a1.append("Time")
+ for i in range(0,c8):
+  a1.append("")
+ v=len(a1)
+ b1=[]
+ b1.append("Longest Subsequence Length")
+ b1.append(a)
+ b1.append("From")
+ for i in range(0,c1):
+  b1.append(t1[i])
+ b1.append(b)
+ b1.append("From")
+ for i in range(0,c2):
+  b1.append(t2[i])
+ b1.append(c)
+ b1.append("From")
+ for i in range(0,c3):
+  b1.append(t3[i])
+ b1.append(d)
+ b1.append("From")
+ for i in range(0,c4):
+  b1.append(t4[i])
+ b1.append(e)
+ b1.append("From")
+ for i in range(0,c5):
+  b1.append(t5[i])
+ b1.append(f)
+ b1.append("From")
+ for i in range(0,c6):
+  b1.append(t6[i])
+ b1.append(g)
+ b1.append("From")
+ for i in range(0,c7):
+  b1.append(t7[i])
+ b1.append(h)
+ b1.append("From")
+ for i in range(0,c8):
+  b1.append(t8[i])
+
+ d1=[]
+ d1.append("Count")
+ d1.append(c1)
+ d1.append("To")
+ for i in range(0,c1):
+  d1.append(t1[i]+ 0.01*(a-1))
+ d1.append(c2)
+ d1.append("To")
+ for i in range(0,c2):
+  d1.append(t2[i]+ 0.01*(b-1))
+ d1.append(c3)
+ d1.append("To")
+ for i in range(0,c3):
+  d1.append(t3[i]+ 0.01*(c-1))
+ d1.append(c4)
+ d1.append("To")
+ for i in range(0,c4):
+  d1.append(t4[i]+ 0.01*(d-1))
+ d1.append(c5)
+ d1.append("To")
+ for i in range(0,c5):
+  d1.append(t5[i]+ 0.01*(e-1))
+ d1.append(c6)
+ d1.append("To")
+ for i in range(0,c6):
+  d1.append(t6[i]+ 0.01*(f-1))
+ d1.append(c7)
+ d1.append("To")
+ for i in range(0,c7):
+  d1.append(t7[i]+ 0.01*(g-1))
+ d1.append(c8)
+ d1.append("To")
+ for i in range(0,c8):
+  d1.append(t8[i]+ 0.01*(h-1))
  from openpyxl import Workbook 
  book=Workbook()
  sheet= book.active    
@@ -395,28 +498,30 @@ def octant_longest_subsequence_count_with_range():
  rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant"])
  for x in range(n-2): # appending the data in xlsx file 
   if(x==0):
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Octant","Longest Susequence Length","Count"])
+   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Octant","Longest Susequence Length","Count","","Octant","Longest Susequence Length","Count"])
   elif x==1: # appending the data in xlsx file for octant 1  
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","1",a,c1])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","1",a,c1,"",a1[x],b1[x],d1[x]])
   elif x==2: # appending the data in xlsx file for octant -1 
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-1",b,c2])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-1",b,c2,"",a1[x],b1[x],d1[x]])
   elif x==3:  # appending the data in xlsx file for octant 2
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","2",c,c3])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","2",c,c3,"",a1[x],b1[x],d1[x]])
   elif x==4:  # appending the data in xlsx file for octant -2
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-2",d,c4]) 
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-2",d,c4,"",a1[x],b1[x],d1[x]]) 
   elif x==5: # appending the data in xlsx file for octant 3 
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","3",e,c5])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","3",e,c5,"",a1[x],b1[x],d1[x]])
   elif x==6: # appending the data in xlsx file for octant -3 
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-3",f,c6])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-3",f,c6,"",a1[x],b1[x],d1[x]])
   elif x==7: # appending the data in xlsx file for octant 4 
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","4",g,c7])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","4",g,c7,"",a1[x],b1[x],d1[x]])
   elif x==8: # appending the data in xlsx file for octant -4 
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","-4",h,c8])
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-4",h,c8,"",a1[x],b1[x],d1[x]])
+  elif x<v:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","",a1[x],b1[x],d1[x]])
   else: # appending the remaining data in xlsx file 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x]])
 
  for i in rows:
   sheet.append(i)
  book.save("output_octant_longest_subsequence_with_range.xlsx")
-
+ 
 octant_longest_subsequence_count_with_range()
