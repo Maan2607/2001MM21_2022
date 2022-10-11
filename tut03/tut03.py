@@ -1,3 +1,5 @@
+from datetime import datetime
+start_time = datetime.now()
 def octant_longest_subsequence_count():
  from openpyxl import load_workbook
  import os
@@ -300,3 +302,5 @@ def octant_longest_subsequence_count():
  book.save("output_octant_longest_subsequence.xlsx")
    
 octant_longest_subsequence_count()
+end_time = datetime.now()
+print('Duration of Program Execution: {}'.format(end_time - start_time))
