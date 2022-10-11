@@ -48,7 +48,7 @@ def octant_longest_subsequence_count():
    oct.append(3)
   else:
    oct.append(-3)
- s1=0 # it is used to store the longest subsequence value of octant 1
+ s1=0 # it is used to store the  longest subsequence value of octant 1
  s2=0 # it is used to store the longest subsequence value of octant -1
  s3=0 # it is used to store the longest subsequence value of octant 2
  s4=0 # it is used to store the longest subsequence value of octant -2
