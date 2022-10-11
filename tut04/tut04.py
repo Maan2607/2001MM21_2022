@@ -1,4 +1,3 @@
-#Help https://youtu.be/H37f_x4wAC0
 def octant_longest_subsequence_count_with_range():
  from openpyxl import load_workbook
  import os
@@ -16,12 +15,12 @@ def octant_longest_subsequence_count_with_range():
 
  wb=load_workbook("input_octant_longest_subsequence_with_range.xlsx")
  sheet=wb["Sheet1"] 
- n=sheet.max_row
+ n=sheet.max_row # n is no. of rows in given data
  for r in range(2,n+1):
-  time1.append(sheet.cell(row=r,column=1).value)
-  u1.append(sheet.cell(row=r,column=2).value)
-  v1.append(sheet.cell(row=r,column=3).value)
-  w1.append(sheet.cell(row=r,column=4).value)
+  time1.append(sheet.cell(row=r,column=1).value) #given data 
+  u1.append(sheet.cell(row=r,column=2).value) #given data
+  v1.append(sheet.cell(row=r,column=3).value) #given data
+  w1.append(sheet.cell(row=r,column=4).value) #given data
 
  v_mean=np.mean(v1, dtype=np.float64) # calculate the mean of v1
  u_mean=np.mean(u1, dtype=np.float64) # mean of u1
@@ -34,7 +33,7 @@ def octant_longest_subsequence_count_with_range():
 
  for i in range(0,n-1):# using this for loop we will get octant
   if ((u2[i]>=0) and (v2[i]>=0) and (w2[i]>=0 )):
-   oct.append(1)
+   oct.append(1) 
   elif((u2[i]>=0) and (v2[i]>=0) and (w2[i]<0 )):
    oct.append(-1)
   elif((u2[i]<0) and (v2[i]>=0) and (w2[i]>=0 )):
@@ -98,9 +97,9 @@ def octant_longest_subsequence_count_with_range():
      s1=0
     else:
      s1=0
-     c1=c1+1    
- cn=0 
- t1=[]
+     c1=c1+1     
+ cn=0 # initiallize count check with 0
+ t1=[] # This list will store the starting time for longest subsequence length for octant +1 
  for r in range(0,n-1):  
   if oct[r]==1:
    if cn==0: 
@@ -108,7 +107,7 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==a:
+  if cn==a: # Checking if length is equal to longest subsequence length
    t1.append(ti1); 
    cn=0
 
@@ -138,8 +137,8 @@ def octant_longest_subsequence_count_with_range():
      s2=0
      c2=c2+1 
 
- cn=0 
- t2=[]
+ cn=0 # initiallize count check with 0
+ t2=[] # This list will store the starting time for longest subsequence length for octant -1
  for r in range(0,n-1):  
   if oct[r]==-1:
    if cn==0: 
@@ -147,7 +146,7 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==b:
+  if cn==b: # Checking if length is equal to longest subsequence length 
    t2.append(ti2); 
    cn=0
 
@@ -178,8 +177,8 @@ def octant_longest_subsequence_count_with_range():
      s3=0
      c3=c3+1    
  
- cn=0 
- t3=[]
+ cn=0 # initiallize count check with 0
+ t3=[]   # This list will store the starting time for longest subsequence length for octant 2
  for r in range(0,n-1):  
   if oct[r]==2:
    if cn==0: 
@@ -187,7 +186,7 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==c:
+  if cn==c: # Checking if length is equal to longest subsequence length 
    t3.append(ti3); 
    cn=0
 
@@ -217,8 +216,8 @@ def octant_longest_subsequence_count_with_range():
      s4=0
      c4=c4+1    
 
- cn=0 
- t4=[]
+ cn=0 # initiallize count check with 0
+ t4=[]  # This list will store the starting time for longest subsequence length for octant -2
  for r in range(0,n-1):  
   if oct[r]==-2:
    if cn==0: 
@@ -226,7 +225,8 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==d:
+
+  if cn==d: # Checking if length is equal to longest subsequence length 
    t4.append(ti4); 
    cn=0
 
@@ -256,8 +256,8 @@ def octant_longest_subsequence_count_with_range():
      s5=0
      c5=c5+1    
  
- cn=0 
- t5=[]
+ cn=0 # initiallize count check with 0
+ t5=[] # This list will store the starting time for longest subsequence length for octant 3
  for r in range(0,n-1):  
   if oct[r]==3:
    if cn==0: 
@@ -265,7 +265,7 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==e:
+  if cn==e: # Checking if length is equal to longest subsequence length
    t5.append(ti5); 
    cn=0
 
@@ -295,8 +295,8 @@ def octant_longest_subsequence_count_with_range():
      s6=0
      c6=c6+1    
  
- cn=0 
- t6=[]
+ cn=0 # initiallize count check with 0
+ t6=[] # This list will store the starting time for longest subsequence length for octant -3
  for r in range(0,n-1):  
   if oct[r]==-3:
    if cn==0: 
@@ -304,7 +304,7 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==f:
+  if cn==f: # Checking if length is equal to longest subsequence length
    t6.append(ti6); 
    cn=0
 
@@ -334,8 +334,8 @@ def octant_longest_subsequence_count_with_range():
      s7=0
      c7=c7+1
 
- cn=0 
- t7=[]
+ cn=0 # initiallize count check with 0
+ t7=[] # This list will store the starting time for longest subsequence length for octant 4
  for r in range(0,n-1):  
   if oct[r]==4:
    if cn==0: 
@@ -343,7 +343,7 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==g:
+  if cn==g: # Checking if length is equal to longest subsequence length
    t7.append(ti7); 
    cn=0
 
@@ -373,8 +373,8 @@ def octant_longest_subsequence_count_with_range():
      s8=0
      c8=c8+1    
        
- cn=0 
- t8=[]
+ cn=0 # initiallize count check with 0
+ t8=[] # This list will store the starting time for longest subsequence length for octant -4
  for r in range(0,n-1):  
   if oct[r]==-4:
    if cn==0: 
@@ -382,115 +382,117 @@ def octant_longest_subsequence_count_with_range():
    cn=cn+1
   else:
    cn=0 
-  if cn==h:
+  if cn==h: # Checking if length is equal to longest subsequence length
    t8.append(ti8); 
    cn=0
 
  print(t8) 
- a1=[]
- a1.append("Octant")
+ a1=[] # This list is made to print the first column the new required table
+ a1.append("Octant")  
  a1.append("1")
  a1.append("Time")
- for i in range(0,c1):
+ for i in range(0,c1): # This loop is for giving c1 no. of space in first coloum 
   a1.append("")
  a1.append("-1")
  a1.append("Time")
- for i in range(0,c2):
+ for i in range(0,c2): # This loop is for giving c2 no. of space in first coloum 
   a1.append("")
  a1.append("2")
  a1.append("Time")
- for i in range(0,c3):
+ for i in range(0,c3): # This loop is for giving c3 no. of space in first coloum 
   a1.append("")
  a1.append("-2")
  a1.append("Time")
- for i in range(0,c4):
+ for i in range(0,c4): # This loop is for giving c4 no. of space in first coloum 
   a1.append("")
  a1.append("3")
  a1.append("Time")
- for i in range(0,c5):
+ for i in range(0,c5): # This loop is for giving c5 no. of space in first coloum 
   a1.append("")
  a1.append("-3")
  a1.append("Time")
- for i in range(0,c6):
+ for i in range(0,c6): # This loop is for giving c6 no. of space in first coloum 
   a1.append("")
  a1.append("4")
  a1.append("Time")
- for i in range(0,c7):
+ for i in range(0,c7): # This loop is for giving c7 no. of space in first coloum 
   a1.append("")
  a1.append("-4")
  a1.append("Time")
- for i in range(0,c8):
+ for i in range(0,c8): # This loop is for giving c8 no. of space in first coloum 
   a1.append("")
  v=len(a1)
- b1=[]
+
+ b1=[] # This list is made to print the second coloumn new required table
  b1.append("Longest Subsequence Length")
  b1.append(a)
  b1.append("From")
- for i in range(0,c1):
+ for i in range(0,c1): # This loop is for giving starting time of longest subsequece length for octant +1 in second coloum 
   b1.append(t1[i])
  b1.append(b)
  b1.append("From")
- for i in range(0,c2):
+ for i in range(0,c2): # This loop is for giving starting time of longest subsequece length for octant -1 in second coloum 
   b1.append(t2[i])
  b1.append(c)
  b1.append("From")
- for i in range(0,c3):
+ for i in range(0,c3): # This loop is for giving starting time of longest subsequece length for octant +2 in second coloum
   b1.append(t3[i])
  b1.append(d)
  b1.append("From")
- for i in range(0,c4):
+ for i in range(0,c4): # This loop is for giving starting time of longest subsequece length for octant -2 in second coloum
   b1.append(t4[i])
  b1.append(e)
  b1.append("From")
- for i in range(0,c5):
+ for i in range(0,c5): # This loop is for giving starting time of longest subsequece length for octant +3 in second coloum
   b1.append(t5[i])
  b1.append(f)
  b1.append("From")
- for i in range(0,c6):
+ for i in range(0,c6): # This loop is for giving starting time of longest subsequece length for octant -3 in second coloum
   b1.append(t6[i])
  b1.append(g)
  b1.append("From")
- for i in range(0,c7):
+ for i in range(0,c7): # This loop is for giving starting time of longest subsequece length for octant +4 in second coloum
   b1.append(t7[i])
  b1.append(h)
  b1.append("From")
- for i in range(0,c8):
+ for i in range(0,c8): # This loop is for giving starting time of longest subsequece length for octant -4 in second coloum
   b1.append(t8[i])
 
- d1=[]
+ d1=[] # This list is made to print third coloumn the new required table
  d1.append("Count")
  d1.append(c1)
  d1.append("To")
- for i in range(0,c1):
+ for i in range(0,c1): # This loop is for giving ending time of longest subsequece length for octant +1 in third coloum
   d1.append(t1[i]+ 0.01*(a-1))
  d1.append(c2)
  d1.append("To")
- for i in range(0,c2):
+ for i in range(0,c2): # This loop is for giving ending time of longest subsequece length for octant -1 in third coloum
   d1.append(t2[i]+ 0.01*(b-1))
  d1.append(c3)
  d1.append("To")
- for i in range(0,c3):
+ for i in range(0,c3): # This loop is for giving ending time of longest subsequece length for octant +2 in third coloum
   d1.append(t3[i]+ 0.01*(c-1))
  d1.append(c4)
  d1.append("To")
- for i in range(0,c4):
+ for i in range(0,c4): # This loop is for giving ending time of longest subsequece length for octant -2 in third coloum
   d1.append(t4[i]+ 0.01*(d-1))
  d1.append(c5)
  d1.append("To")
- for i in range(0,c5):
+ for i in range(0,c5): # This loop is for giving ending time of longest subsequece length for octant +3 in third coloum
   d1.append(t5[i]+ 0.01*(e-1))
  d1.append(c6)
  d1.append("To")
- for i in range(0,c6):
+ for i in range(0,c6): # This loop is for giving ending time of longest subsequece length for octant -3 in third coloum
   d1.append(t6[i]+ 0.01*(f-1))
  d1.append(c7)
  d1.append("To")
- for i in range(0,c7):
+ for i in range(0,c7): # This loop is for giving ending time of longest subsequece length for octant +4 in third coloum
   d1.append(t7[i]+ 0.01*(g-1))
  d1.append(c8)
  d1.append("To")
- for i in range(0,c8):
+ for i in range(0,c8): # This loop is for giving ending time of longest subsequece length for octant +4 in third coloum
   d1.append(t8[i]+ 0.01*(h-1))
+
  from openpyxl import Workbook 
  book=Workbook()
  sheet= book.active    
@@ -499,21 +501,21 @@ def octant_longest_subsequence_count_with_range():
  for x in range(n-2): # appending the data in xlsx file 
   if(x==0):
    rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Octant","Longest Susequence Length","Count","","Octant","Longest Susequence Length","Count"])
-  elif x==1: # appending the data in xlsx file for octant 1  
+  elif x==1: # appending the data in xlsx file for octant 1  and time ranges 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","1",a,c1,"",a1[x],b1[x],d1[x]])
-  elif x==2: # appending the data in xlsx file for octant -1 
+  elif x==2: # appending the data in xlsx file for octant -1 and time ranges 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-1",b,c2,"",a1[x],b1[x],d1[x]])
-  elif x==3:  # appending the data in xlsx file for octant 2
+  elif x==3:  # appending the data in xlsx file for octant 2 and time ranges
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","2",c,c3,"",a1[x],b1[x],d1[x]])
-  elif x==4:  # appending the data in xlsx file for octant -2
+  elif x==4:  # appending the data in xlsx file for octant -2 and time ranges
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-2",d,c4,"",a1[x],b1[x],d1[x]]) 
-  elif x==5: # appending the data in xlsx file for octant 3 
+  elif x==5: # appending the data in xlsx file for octant 3 and time ranges 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","3",e,c5,"",a1[x],b1[x],d1[x]])
-  elif x==6: # appending the data in xlsx file for octant -3 
+  elif x==6: # appending the data in xlsx file for octant -3 and time ranges 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-3",f,c6,"",a1[x],b1[x],d1[x]])
-  elif x==7: # appending the data in xlsx file for octant 4 
+  elif x==7: # appending the data in xlsx file for octant 4 and time ranges 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","4",g,c7,"",a1[x],b1[x],d1[x]])
-  elif x==8: # appending the data in xlsx file for octant -4 
+  elif x==8: # appending the data in xlsx file for octant -4 and time ranges 
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","-4",h,c8,"",a1[x],b1[x],d1[x]])
   elif x<v:
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","",a1[x],b1[x],d1[x]])
