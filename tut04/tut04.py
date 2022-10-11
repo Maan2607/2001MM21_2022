@@ -518,7 +518,7 @@ def octant_longest_subsequence_count_with_range():
   elif x<v:
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","",a1[x],b1[x],d1[x]])
   else: # appending the remaining data in xlsx file 
-   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x]])
+   rows.append([time1[x],u1[x],v1[x], w1[x],"","","",u2[x],v2[x],w2[x],oct[x]])
 
  for i in rows:
   sheet.append(i)
