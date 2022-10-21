@@ -261,6 +261,24 @@ def octant_range_names(mod=5000):
     s=str(z)+"-"+str(y)		 
     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7],rank1_id_name[x-1][0],rank1_id_name[x-1][1]])	 
     j=j+1
+  elif x==m+5:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","Octant ID","Octant Name","Count of Rank 1 Mod values","","","",""])
+  elif x==m+6:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","1","Internal Outward Interaction","","","","",""])
+  elif x==m+7:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-1","External Outward Interaction","","","","",""])
+  elif x==m+8:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","2","External Ejection","","","","",""])
+  elif x==m+9:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-2","Internal Ejection","","","","",""])
+  elif x==m+10:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","3","External inward Interaction","","","","",""])
+  elif x==m+11:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-3","Internal inward Interaction","","","","",""])
+  elif x==m+12:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","4","Internal Sweep","","","","",""]) 
+  elif x==m+13:
+   rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-4","External Sweep","","","","",""])     
   else:
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","",""])
 
