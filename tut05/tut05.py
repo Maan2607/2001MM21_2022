@@ -84,6 +84,7 @@ def octant_range_names(mod=5000):
   else:
    c8=c8+1
  rank=[]
+ rank1_id_name=[]
  req=[]
  req.append([c1,1])
  req.append([c2,2])
@@ -104,6 +105,32 @@ def octant_range_names(mod=5000):
  req_ranks[req[6][1]-1]=2
  req_ranks[req[7][1]-1]=1
  rank.append(req_ranks)
+ rank_id_name=[]
+ if req_ranks[0]==1:
+  rank_id_name=[1,"Internal outward Interaction"]
+  rank1_id_name.append(rank_id_name)
+ elif req_ranks[1]==1:
+  rank_id_name=[-1,"External outward Interaction"]
+  rank1_id_name.append(rank_id_name)
+ elif req_ranks[2]==1:
+  rank_id_name=[2,"External Ejection"]
+  rank1_id_name.append(rank_id_name) 
+ elif req_ranks[3]==1:
+  rank_id_name=[-2,"Internal Ejection"]
+  rank1_id_name.append(rank_id_name) 
+ elif req_ranks[4]==1:
+  rank_id_name=[3,"External inward Interaction"]
+  rank1_id_name.append(rank_id_name) 
+ elif req_ranks[5]==1:
+  rank_id_name=[-3,"Internal inward Interaction"]
+  rank1_id_name.append(rank_id_name) 
+ elif req_ranks[6]==1:
+  rank_id_name=[4,"Internal Sweep"]
+  rank1_id_name.append(rank_id_name) 
+ elif req_ranks[7]==1:
+  rank_id_name=[-4,"External Sweep"]
+  rank1_id_name.append(rank_id_name) 
+ 
  o1=[] #make a list of octant count in mod range 
  o2=[] #make a list of octant count in mod range
  o3=[] #make a list of octant count in mod range
@@ -161,7 +188,6 @@ def octant_range_names(mod=5000):
   req.append([oct7,7])
   req.append([oct8,8])
   req.sort()
-  print(req)
   req_ranks=[0,0,0,0,0,0,0,0]
   req_ranks[req[0][1]-1]=8
   req_ranks[req[1][1]-1]=7
@@ -172,6 +198,33 @@ def octant_range_names(mod=5000):
   req_ranks[req[6][1]-1]=2
   req_ranks[req[7][1]-1]=1
   rank.append(req_ranks)
+  rank_id_name=[]
+  rank_id_name=[]
+  if req_ranks[0]==1:
+   rank_id_name=[1,"Internal outward Interaction"]
+   rank1_id_name.append(rank_id_name)
+  elif req_ranks[1]==1:
+   rank_id_name=[-1,"External outward Interaction"]
+   rank1_id_name.append(rank_id_name)
+  elif req_ranks[2]==1:
+   rank_id_name=[2,"External Ejection"]
+   rank1_id_name.append(rank_id_name) 
+  elif req_ranks[3]==1:
+   rank_id_name=[-2,"Internal Ejection"]
+   rank1_id_name.append(rank_id_name) 
+  elif req_ranks[4]==1:
+   rank_id_name=[3,"External inward Interaction"]
+   rank1_id_name.append(rank_id_name) 
+  elif req_ranks[5]==1:
+   rank_id_name=[-3,"Internal inward Interaction"]
+   rank1_id_name.append(rank_id_name) 
+  elif req_ranks[6]==1:
+   rank_id_name=[4,"Internal Sweep"]
+   rank1_id_name.append(rank_id_name) 
+  elif req_ranks[7]==1:
+   rank_id_name=[-4,"External Sweep"]
+   rank1_id_name.append(rank_id_name) 
+ 
   oct1=0
   oct2=0
   oct3=0
@@ -180,18 +233,18 @@ def octant_range_names(mod=5000):
   oct6=0
   oct7=0
   oct8=0
- print(rank)
+ print(rank1_id_name) 
  from openpyxl import Workbook 
  book=Workbook()
  sheet= book.active    
  rows=[] 
- rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant","","OctantID","+1","-1","+2","-2","+3","-3","+4","-4","Rank of 1","Rank of -1","Rank of 2","Rank of -2","Rank of 3","Rank of -3","Rank of 4","Rank of -4"])
+ rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant","","OctantID","+1","-1","+2","-2","+3","-3","+4","-4","Rank of 1","Rank of -1","Rank of 2","Rank of -2","Rank of 3","Rank of -3","Rank of 4","Rank of -4","Rank1 Octant ID","Rank1 Octant Name"])
  j=0
  a=0
  b=0
  for x in range(n-2):
   if(x==0):
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Overall count",c1,c2,c3,c4,c5,c6,c7,c8,rank[x][0],rank[x][1],rank[x][2],rank[x][3],rank[x][4],rank[x][5],rank[x][6],rank[x][7]])
+   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Overall count",c1,c2,c3,c4,c5,c6,c7,c8,rank[x][0],rank[x][1],rank[x][2],rank[x][3],rank[x][4],rank[x][5],rank[x][6],rank[x][7],rank1_id_name[x][0],rank1_id_name[x][1]])
   elif(x==1):
    s="mod "+str(mod)		
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"User input",s,"","","","","","","",""])
@@ -200,13 +253,13 @@ def octant_range_names(mod=5000):
     z=j*mod 	
     y=(j+1)*mod
     s=str(z)+"-"+str(n-2)		 
-    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7]])	 
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7],rank1_id_name[x-1][0],rank1_id_name[x-1][1]])	 
     j=j+1
    else:
     z=j*mod	
     y=(j+1)*mod-1
     s=str(z)+"-"+str(y)		 
-    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7]])	 
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7],rank1_id_name[x-1][0],rank1_id_name[x-1][1]])	 
     j=j+1
   else:
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","",""])
