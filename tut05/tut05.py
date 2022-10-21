@@ -206,35 +206,35 @@ def octant_range_names(mod=4000):
   rank.append(req_ranks) 
   rank_id_name=[]
   rank_id_name=[]
-  if req_ranks[0]==1:
+  if req_ranks[0]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[1,"Internal outward Interaction"]
    rank1_id_name.append(rank_id_name)
    sn1=sn1+1
-  elif req_ranks[1]==1:
+  elif req_ranks[1]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[-1,"External outward Interaction"]
    rank1_id_name.append(rank_id_name)
    sn2=sn2+1
-  elif req_ranks[2]==1:
+  elif req_ranks[2]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[2,"External Ejection"]
    rank1_id_name.append(rank_id_name)
    sn3=sn3+1 
-  elif req_ranks[3]==1:
+  elif req_ranks[3]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[-2,"Internal Ejection"]
    rank1_id_name.append(rank_id_name)
    sn4=sn4+1 
-  elif req_ranks[4]==1:
+  elif req_ranks[4]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[3,"External inward Interaction"]
    rank1_id_name.append(rank_id_name)
    sn5=sn5+1 
-  elif req_ranks[5]==1:
+  elif req_ranks[5]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[-3,"Internal inward Interaction"]
    rank1_id_name.append(rank_id_name)
    sn6=sn6+1 
-  elif req_ranks[6]==1:
+  elif req_ranks[6]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[4,"Internal Sweep"]
    rank1_id_name.append(rank_id_name)
    sn7=sn7+1 
-  elif req_ranks[7]==1:
+  elif req_ranks[7]==1: # Givng name and id to Rank 1 Octant
    rank_id_name=[-4,"External Sweep"]
    rank1_id_name.append(rank_id_name)
    sn8=sn8+1 
@@ -247,11 +247,12 @@ def octant_range_names(mod=4000):
   oct6=0
   oct7=0
   oct8=0
+      # writing of data in sheet1 
  from openpyxl import Workbook 
  book=Workbook()
  sheet= book.active    
  rows=[] 
- rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant","","OctantID","+1","-1","+2","-2","+3","-3","+4","-4","Rank of 1","Rank of -1","Rank of 2","Rank of -2","Rank of 3","Rank of -3","Rank of 4","Rank of -4","Rank1 Octant ID","Rank1 Octant Name"])
+ rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant","","OctantID","+1","-1","+2","-2","+3","-3","+4","-4","Rank of 1","Rank of -1","Rank of 2","Rank of -2","Rank of 3","Rank of -3","Rank of 4","Rank of -4","Rank1 Octant ID","Rank1 Octant Name"]) # Printing of heading row
  j=0
  a=0
  b=0
@@ -274,25 +275,25 @@ def octant_range_names(mod=4000):
     s=str(z)+"-"+str(y)		 
     rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7],rank1_id_name[x-1][0],rank1_id_name[x-1][1]])	 
     j=j+1
-  elif x==m+5:
+  elif x==m+5: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","Octant ID","Octant Name","Count of Rank 1 Mod values","","","",""])
-  elif x==m+6:
+  elif x==m+6: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","1","Internal Outward Interaction",sn1,"","","",""])
-  elif x==m+7:
+  elif x==m+7: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-1","External Outward Interaction",sn2,"","","",""])
-  elif x==m+8:
+  elif x==m+8: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","2","External Ejection",sn3,"","","",""])
-  elif x==m+9:
+  elif x==m+9: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-2","Internal Ejection",sn4,"","","",""])
-  elif x==m+10:
+  elif x==m+10: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","3","External inward Interaction",sn5,"","","",""])
-  elif x==m+11:
+  elif x==m+11: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-3","Internal inward Interaction",sn6,"","","",""])
-  elif x==m+12:
+  elif x==m+12: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","4","Internal Sweep",sn7,"","","",""]) 
-  elif x==m+13:
+  elif x==m+13: # Printing the table of count of diffent rank 1 octants
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","-4","External Sweep",sn8,"","","",""])     
-  else:
+  else: # Printing the else data
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","",""])
 
  for i in rows:
