@@ -8,6 +8,8 @@ def octant_range_names(mod=5000):
  from openpyxl import load_workbook
  import os
  import numpy as np
+ from operator import itemgetter
+
  os.system('cls')
 
  time1 = [] # make a new list
@@ -81,7 +83,27 @@ def octant_range_names(mod=5000):
    c7=c7+1
   else:
    c8=c8+1
-
+ rank=[]
+ req=[]
+ req.append([c1,1])
+ req.append([c2,2])
+ req.append([c3,3])
+ req.append([c4,4])
+ req.append([c5,5])
+ req.append([c6,6])
+ req.append([c7,7])
+ req.append([c8,8]) 
+ req.sort()
+ req_ranks=[0,0,0,0,0,0,0,0]
+ req_ranks[req[0][1]-1]=8
+ req_ranks[req[1][1]-1]=7
+ req_ranks[req[2][1]-1]=6
+ req_ranks[req[3][1]-1]=5
+ req_ranks[req[4][1]-1]=4
+ req_ranks[req[5][1]-1]=3
+ req_ranks[req[6][1]-1]=2
+ req_ranks[req[7][1]-1]=1
+ rank.append(req_ranks)
  o1=[] #make a list of octant count in mod range 
  o2=[] #make a list of octant count in mod range
  o3=[] #make a list of octant count in mod range
@@ -101,7 +123,6 @@ def octant_range_names(mod=5000):
  oct8=0 #making variables for using in function
 
  m= int((n-2)/mod) +1 # m will give no.of interval
-
  for i in range(m):
   s=mod*i
   for j in range(mod):	
@@ -130,6 +151,27 @@ def octant_range_names(mod=5000):
   o6.append(oct6)
   o7.append(oct7)
   o8.append(oct8)
+  req=[]
+  req.append([oct1,1])
+  req.append([oct2,2])
+  req.append([oct3,3])
+  req.append([oct4,4])
+  req.append([oct5,5])
+  req.append([oct6,6])
+  req.append([oct7,7])
+  req.append([oct8,8])
+  req.sort()
+  print(req)
+  req_ranks=[0,0,0,0,0,0,0,0]
+  req_ranks[req[0][1]-1]=8
+  req_ranks[req[1][1]-1]=7
+  req_ranks[req[2][1]-1]=6
+  req_ranks[req[3][1]-1]=5
+  req_ranks[req[4][1]-1]=4
+  req_ranks[req[5][1]-1]=3
+  req_ranks[req[6][1]-1]=2
+  req_ranks[req[7][1]-1]=1
+  rank.append(req_ranks)
   oct1=0
   oct2=0
   oct3=0
@@ -138,33 +180,33 @@ def octant_range_names(mod=5000):
   oct6=0
   oct7=0
   oct8=0
-
+ print(rank)
  from openpyxl import Workbook 
  book=Workbook()
  sheet= book.active    
  rows=[] 
- rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant","","OctantID","+1","-1","+2","-2","+3","-3","+4","-4"])
+ rows.append(["Time",'U','V','W','Uavg','Vavg','Wavg',"U'=U-Uavg","V'=V-Vavg","W'=W-Wavg","Octant","","OctantID","+1","-1","+2","-2","+3","-3","+4","-4","Rank of 1","Rank of -1","Rank of 2","Rank of -2","Rank of 3","Rank of -3","Rank of 4","Rank of -4"])
  j=0
  a=0
  b=0
  for x in range(n-2):
   if(x==0):
-   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Overall count",c1,c2,c3,c4,c5,c6,c7,c8])
+   rows.append([time1[x],u1[x],v1[x],w1[x],u_mean,v_mean,w_mean,u2[x],v2[x],w2[x],oct[x],"","Overall count",c1,c2,c3,c4,c5,c6,c7,c8,rank[x][0],rank[x][1],rank[x][2],rank[x][3],rank[x][4],rank[x][5],rank[x][6],rank[x][7]])
   elif(x==1):
    s="mod "+str(mod)		
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"User input",s,"","","","","","","",""])
   elif(x>=2 and x<2+m):
-   if(x==1+m):# it will work ont=ly if x=1+m
+   if(x==1+m):# it will work only if x=1+m
     z=j*mod 	
     y=(j+1)*mod
     s=str(z)+"-"+str(n-2)		 
-    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2]])	 
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7]])	 
     j=j+1
    else:
     z=j*mod	
     y=(j+1)*mod-1
     s=str(z)+"-"+str(y)		 
-    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2]])	 
+    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"",s,o1[x-2],o2[x-2],o3[x-2],o4[x-2],o5[x-2],o6[x-2],o7[x-2],o8[x-2],rank[x-1][0],rank[x-1][1],rank[x-1][2],rank[x-1][3],rank[x-1][4],rank[x-1][5],rank[x-1][6],rank[x-1][7]])	 
     j=j+1
   else:
    rows.append([time1[x],u1[x],v1[x],w1[x],"","","",u2[x],v2[x],w2[x],oct[x],"","","","","","","","",""])
