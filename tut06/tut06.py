@@ -44,7 +44,6 @@ def attendance_report():
       real_count.update({row[1][0:8]: real_count.get(row[1][0:8])+1})
     elif row[1][0:8] in roll_no :
      fake_count.update({row[1][0:8]: fake_count.get(row[1][0:8])+1})
- 
   for x in roll_no:
    for j in dat:
     with open('input_attendance.csv', 'r') as file:
@@ -53,10 +52,55 @@ def attendance_report():
       if j==row[0][0:5] and row[1][0:8]==x and row[0][11:13]=="14" : 
        actual_count.update({row[1][0:8]: actual_count.get(row[1][0:8])+1})
        break 
-
-
- print(fake_count["2001CB02"])
  print(actual_count["2001CB02"])
+
+ if os.path.exists("output"):
+  for f in os.listdir("output"):
+    os.remove(os.path.join("output",f))
+
+ os.chdir("output")
+ 
+ for i in range(0,n):
+  with open( roll_no[i] + '.csv','w',newline="") as file: # opening the file to write the output
+   writer=csv.writer(file)
+   a=(actual_count[roll_no[i]]/13)*100
+   writer.writerow(["Roll no.","Name","total_leacture_taken","attendance_count_actual","attendance_count_fake","attendance_count_absent","Percentage (attendance_count_actual/total_lecture_taken) 2 digit decimal "])
+   writer.writerow([roll_no[i],stu_name[i],13,actual_count[roll_no[i]],fake_count[roll_no[i]],13-actual_count[roll_no[i]],"{:.2f}".format(a)])
+
+ with open( "attendence_report_consolidated" '.csv','w',newline="") as file: # opening the file to write the output
+  writer=csv.writer(file)
+  writer.writerow(["Roll no.","Name","total_leacture_taken","attendance_count_actual","attendance_count_fake","attendance_count_absent","Percentage (attendance_count_actual/total_lecture_taken) 2 digit decimal "])
+  for i in range(0,n): 
+   a=(actual_count[roll_no[i]]/13)*100
+   writer.writerow([roll_no[i],stu_name[i],13,actual_count[roll_no[i]],fake_count[roll_no[i]],13-actual_count[roll_no[i]],"{:.2f}".format(a)])
+
+
+ dup=[]
+ s=["Timestamp","Roll no.","Name","total count of attendence on that day"]
+ dup.append(s)
+ d=0
+ st=""
+ q=0
+ for x in roll_no:  
+  for j in dat:
+   d=0
+   s=[]
+   with open('C:/Users/DELL/Documents/GitHub/2001MM21_2022/tut06/input_attendance.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+     if j==row[0][0:5] and row[1][0:8]==x and row[0][11:13]=="14" : 
+      d=d+1
+      if d==1:
+       st=row[0]
+    if d>1:   
+     s=[st,roll_no[q],stu_name[q],d]
+     dup.append(s)
+  q=q+1  
+
+ print(dup) 
+ with open( "attendence_report_duplicate" +'.csv','w',newline="") as file: # opening the file to write the output
+  writer=csv.writer(file)      
+  
 attendance_report()
 
 
