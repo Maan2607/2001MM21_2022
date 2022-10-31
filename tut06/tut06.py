@@ -97,13 +97,13 @@ def attendance_report():
      dup.append(s)
   q=q+1  
 
- print(dup) 
  with open( "attendence_report_duplicate" +'.csv','w',newline="") as file: # opening the file to write the output
-  writer=csv.writer(file)      
-  
+  writer=csv.writer(file)
+  g=len(dup)      
+  for i in range(0,g):
+   writer.writerow([dup[i][0],dup[i][1],dup[i][2],dup[i][3]])  
+
 attendance_report()
-
-
 
 
 #This shall be the last lines of the code.
