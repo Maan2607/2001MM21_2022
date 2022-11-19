@@ -113,6 +113,19 @@ def octant_analysis(mod=5000):
 				else:
 					s1 = 0
 					c1 = c1+1
+		cn = 0  # initiallize count check with 0
+		t1 = []  # This list will store the starting time for longest subsequence length for octant +1
+		for r in range(0, n-1):
+			if oct[r] == 1:
+				if cn == 0:
+					ti1 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == a:  # Checking if length is equal to longest subsequence length
+				t1.append(ti1)
+				cn = 0
+			
 						# This for loop will solve the count and longest subsequence length for octant -1
 		for r in range(0, n-1):
 			if oct[r] == -1:
@@ -137,6 +150,21 @@ def octant_analysis(mod=5000):
 				else:
 					s2 = 0
 					c2 = c2+1
+					
+		cn = 0  # initiallize count check with 0
+		t2 = []  # This list will store the starting time for longest subsequence length for octant -1
+		for r in range(0, n-1):
+			if oct[r] == -1:
+				if cn == 0:
+					ti2 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == b:  # Checking if length is equal to longest subsequence length
+				t2.append(ti2)
+				cn = 0
+
+    			
 					# This for loop will solve the count and longest subsequence length for octant 2
 		for r in range(0, n-1):
 			if oct[r] == 2:
@@ -161,6 +189,19 @@ def octant_analysis(mod=5000):
 				else:
 					s3 = 0
 					c3 = c3+1
+		cn = 0  # initiallize count check with 0
+		t3 = []   # This list will store the starting time for longest subsequence length for octant 2
+		for r in range(0, n-1):
+			if oct[r] == 2:
+				if cn == 0:
+					ti3 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == c:  # Checking if length is equal to longest subsequence length
+				t3.append(ti3)
+				cn = 0
+
 		for r in range(0, n-1):
 			if oct[r] == -2:
 				s4 = s4+1
@@ -185,6 +226,21 @@ def octant_analysis(mod=5000):
 					s4 = 0
 					c4 = c4+1
 				# This for loop will solve the count and longest subsequence length for octant 3
+		cn = 0  # initiallize count check with 0
+		t4 = []  # This list will store the starting time for longest subsequence length for octant -2
+		for r in range(0, n-1):
+			if oct[r] == -2:
+				if cn == 0:
+					ti4 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == d:  # Checking if length is equal to longest subsequence length
+				t4.append(ti4)
+				cn = 0
+
+		
+		
 		for r in range(0, n-1):
 			if oct[r] == 3:
 				s5 = s5+1
@@ -209,6 +265,20 @@ def octant_analysis(mod=5000):
 					s5 = 0
 					c5 = c5+1
 				# This for loop will solve the count and longest subsequence length for octant -3
+		cn = 0  # initiallize count check with 0
+		t5 = []  # This list will store the starting time for longest subsequence length for octant 3
+		for r in range(0, n-1):
+			if oct[r] == 3:
+				if cn == 0:
+					ti5 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == e:  # Checking if length is equal to longest subsequence length
+				t5.append(ti5)
+				cn = 0
+
+		
 		for r in range(0, n-1):
 			if oct[r] == -3:
 				s6 = s6+1
@@ -233,6 +303,21 @@ def octant_analysis(mod=5000):
 					s6 = 0
 					c6 = c6+1
 			# This for loop will solve the count and longest subsequence length for octant 4
+		cn = 0  # initiallize count check with 0
+		t6 = []  # This list will store the starting time for longest subsequence length for octant -3
+		for r in range(0, n-1):
+			if oct[r] == -3:
+				if cn == 0:
+					ti6 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == f:  # Checking if length is equal to longest subsequence length
+				t6.append(ti6)
+				cn = 0
+
+		
+		
 		for r in range(0, n-1):
 			if oct[r] == 4:
 				s7 = s7+1
@@ -256,7 +341,19 @@ def octant_analysis(mod=5000):
 				else:
 					s7 = 0
 					c7 = c7+1
-					
+		cn = 0  # initiallize count check with 0
+		t7 = []  # This list will store the starting time for longest subsequence length for octant 4
+		for r in range(0, n-1):
+			if oct[r] == 4:
+				if cn == 0:
+					ti7 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == g:  # Checking if length is equal to longest subsequence length
+				t7.append(ti7)
+				cn = 0
+			
 				# This for loop will solve the count and longest subsequence length for octant -4
 		for r in range(0, n-1):
 			if oct[r] == -4:
@@ -280,7 +377,20 @@ def octant_analysis(mod=5000):
 					s8 = 0
 				else:
 					s8 = 0
-					c8 = c8+1			
+					c8 = c8+1
+		cn = 0  # initiallize count check with 0
+		t8 = []  # This list will store the starting time for longest subsequence length for octant -4
+		for r in range(0, n-1):
+			if oct[r] == -4:
+				if cn == 0:
+					ti8 = time1[r]
+				cn = cn+1
+			else:
+				cn = 0
+			if cn == h:  # Checking if length is equal to longest subsequence length
+				t8.append(ti8)
+				cn = 0
+			
 		tu3.append(["Octant##","Longest Subsequence length","Count"])
 		tu3.append(["1",a,c1])
 		tu3.append(["-1",b,c2])
@@ -292,7 +402,117 @@ def octant_analysis(mod=5000):
 		tu3.append(["-4",h,c8])
 		for i in range(0,1000):
 			tu3.append(["","",""])
+		e1 = []  # This list is made to print the first column the new required table
+		e1.append("Octant###")
+		e1.append("1")
+		e1.append("Time")
+		for i in range(0, c1):  # This loop is for giving c1 no. of space in first coloum
+			e1.append("")
+		e1.append("-1")
+		e1.append("Time")
+		for i in range(0, c2):  # This loop is for giving c2 no. of space in first coloum
+			e1.append("")
+		e1.append("2")
+		e1.append("Time")
+		for i in range(0, c3):  # This loop is for giving c3 no. of space in first coloum
+			e1.append("")
+		e1.append("-2")
+		e1.append("Time")
+		for i in range(0, c4):  # This loop is for giving c4 no. of space in first coloum
+			e1.append("")
+		e1.append("3")
+		e1.append("Time")
+		for i in range(0, c5):  # This loop is for giving c5 no. of space in first coloum
+			e1.append("")
+		e1.append("-3")
+		e1.append("Time")
+		for i in range(0, c6):  # This loop is for giving c6 no. of space in first coloum
+			e1.append("")
+		e1.append("4")
+		e1.append("Time")
+		for i in range(0, c7):  # This loop is for giving c7 no. of space in first coloum
+			e1.append("")
+		e1.append("-4")
+		e1.append("Time")
+		for i in range(0, c8):  # This loop is for giving c8 no. of space in first coloum
+			e1.append("")
+		v = len(e1)
+        
+		b1 = []  # This list is made to print the second coloumn new required table
+		b1.append("Longest Subsequence Length")
+		b1.append(a)
+		b1.append("From")
+		for i in range(0, c1):  # This loop is for giving starting time of longest subsequece length for octant +1 in second coloum
+			b1.append(t1[i])
+		b1.append(b)
+		b1.append("From")
+		for i in range(0, c2):  # This loop is for giving starting time of longest subsequece length for octant -1 in second coloum
+			b1.append(t2[i])
+		b1.append(c)
+		b1.append("From")
+		for i in range(0, c3):  # This loop is for giving starting time of longest subsequece length for octant +2 in second coloum
+			b1.append(t3[i])
+		b1.append(d)
+		b1.append("From")
+		for i in range(0, c4):  # This loop is for giving starting time of longest subsequece length for octant -2 in second coloum
+			b1.append(t4[i])
+		b1.append(e)
+		b1.append("From")
+		for i in range(0, c5):  # This loop is for giving starting time of longest subsequece length for octant +3 in second coloum
+			b1.append(t5[i])
+		b1.append(f)
+		b1.append("From")
+		for i in range(0, c6):  # This loop is for giving starting time of longest subsequece length for octant -3 in second coloum
+			b1.append(t6[i])
+		b1.append(g)
+		b1.append("From")
+		for i in range(0, c7):  # This loop is for giving starting time of longest subsequece length for octant +4 in second coloum
+			b1.append(t7[i])
+		b1.append(h)
+		b1.append("From")
+		for i in range(0, c8):  # This loop is for giving starting time of longest subsequece length for octant -4 in second coloum
+			b1.append(t8[i])
+        
 
+		d1 = []  # This list is made to print third coloumn the new required table
+		d1.append("Count")
+		d1.append(c1)
+		d1.append("To")
+		for i in range(0, c1):  # This loop is for giving ending time of longest subsequece length for octant +1 in third coloum
+			d1.append(t1[i] + 0.01*(a-1))
+		d1.append(c2)
+		d1.append("To")
+		for i in range(0, c2):  # This loop is for giving ending time of longest subsequece length for octant -1 in third coloum
+			d1.append(t2[i] + 0.01*(b-1))
+		d1.append(c3)
+		d1.append("To")
+		for i in range(0, c3):  # This loop is for giving ending time of longest subsequece length for octant +2 in third coloum
+			d1.append(t3[i] + 0.01*(c-1))
+		d1.append(c4)
+		d1.append("To")
+		for i in range(0, c4):  # This loop is for giving ending time of longest subsequece length for octant -2 in third coloum
+			d1.append(t4[i] + 0.01*(d-1))
+		d1.append(c5)
+		d1.append("To")
+		for i in range(0, c5):  # This loop is for giving ending time of longest subsequece length for octant +3 in third coloum
+			d1.append(t5[i] + 0.01*(e-1))
+		d1.append(c6)
+		d1.append("To")
+		for i in range(0, c6):  # This loop is for giving ending time of longest subsequece length for octant -3 in third coloum
+			d1.append(t6[i] + 0.01*(f-1))
+		d1.append(c7)
+		d1.append("To")
+		for i in range(0, c7):  # This loop is for giving ending time of longest subsequece length for octant +4 in third coloum
+			d1.append(t7[i] + 0.01*(g-1))
+		d1.append(c8)
+		d1.append("To")
+		for i in range(0, c8):  # This loop is for giving ending time of longest subsequece length for octant +4 in third coloum
+			d1.append(t8[i] + 0.01*(h-1))
+        
+		for i in range(0,1000):
+			e1.append("")
+			b1.append("")
+			d1.append("")
 		c1 = 0  # overall count of octant 1
 		c2 = 0  # overall count of octant -1
 		c3 = 0  # overall count of octant 2
@@ -745,8 +965,7 @@ def octant_analysis(mod=5000):
 			else:
 				row.append(["","","","","","","","","",""])
 		z=len(row)
-		print(row)
-					# writing of data in sheet1
+			# writing of data in sheet1
 		os.chdir(curr)
 		os.chdir("output")
 		from openpyxl import Workbook
@@ -763,56 +982,56 @@ def octant_analysis(mod=5000):
 			if x>1000:
 				rows.append([time1[x], u1[x], v1[x], w1[x],"","","", u2[x], v2[x], w2[x], oct[x]])
 			elif x == 0:
-				rows.append([time1[x], u1[x], v1[x], w1[x], u_mean, v_mean, w_mean, u2[x], v2[x], w2[x], oct[x], "", "", "Octant ID", "1", "-1", "2", "-2", "3", "-3","4","-4","Rank Octant 1","Rank Octant -1","Rank Octant 2","Rank Octant -2","Rank Octant 3","Rank Octant -3","Rank Octant 4","Rank Octant -4","Rank1 Octant ID","Rank1 Octant NAME","",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+				rows.append([time1[x], u1[x], v1[x], w1[x], u_mean, v_mean, w_mean, u2[x], v2[x], w2[x], oct[x], "", "", "Octant ID", "1", "-1", "2", "-2", "3", "-3","4","-4","Rank Octant 1","Rank Octant -1","Rank Octant 2","Rank Octant -2","Rank Octant 3","Rank Octant -3","Rank Octant 4","Rank Octant -4","Rank1 Octant ID","Rank1 Octant NAME","",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 							# c8, rank[x][0], rank[x][1], rank[x][2], rank[x][3], rank[x][4], rank[x][5], rank[x][6], rank[x][7], rank1_id_name[x][0], rank1_id_name[x][1]])
 			elif (x == 1):
 				s = "mod "+str(mod)
-				rows.append([time1[x], u1[x], v1[x], w1[x], "", '', '', u2[x], v2[x], w2[x], oct[x], "", s, "Overall count", c1, c2, c3, c4, c5, c6,c7,c8,rank[x][0], rank[x][1], rank[x][2], rank[x][3], rank[x][4], rank[x][5], rank[x][6], rank[x][7], rank1_id_name[x][0], rank1_id_name[x][1],"",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+				rows.append([time1[x], u1[x], v1[x], w1[x], "", '', '', u2[x], v2[x], w2[x], oct[x], "", s, "Overall count", c1, c2, c3, c4, c5, c6,c7,c8,rank[x][0], rank[x][1], rank[x][2], rank[x][3], rank[x][4], rank[x][5], rank[x][6], rank[x][7], rank1_id_name[x][0], rank1_id_name[x][1],"",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif (x >= 2 and x < 2+m):
 				if (x == 1+m):  # it will work only if x=1+m
 					z = j*mod
 					y = (j+1)*mod
 					s = str(z)+"-"+str(n-2)
 					rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x], oct[x], "","", s, o1[x-2], o2[x-2], o3[x-2], o4[x-2], o5[x-2], o6[x-2], o7[x-2], o8[x-2],
-								rank[x-1][0], rank[x-1][1], rank[x-1][2], rank[x-1][3], rank[x-1][4], rank[x-1][5], rank[x-1][6], rank[x-1][7], rank1_id_name[x-1][0], rank1_id_name[x-1][1],"",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+								rank[x-1][0], rank[x-1][1], rank[x-1][2], rank[x-1][3], rank[x-1][4], rank[x-1][5], rank[x-1][6], rank[x-1][7], rank1_id_name[x-1][0], rank1_id_name[x-1][1],"",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 					j = j+1
 				else:
 					z = j*mod
 					y = (j+1)*mod-1
 					s = str(z)+"-"+str(y)
 					rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x], oct[x], "","", s, o1[x-2], o2[x-2], o3[x-2], o4[x-2], o5[x-2], o6[x-2], o7[x-2], o8[x-2],
-								rank[x-1][0], rank[x-1][1], rank[x-1][2], rank[x-1][3], rank[x-1][4], rank[x-1][5], rank[x-1][6], rank[x-1][7], rank1_id_name[x-1][0], rank1_id_name[x-1][1],"",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+								rank[x-1][0], rank[x-1][1], rank[x-1][2], rank[x-1][3], rank[x-1][4], rank[x-1][5], rank[x-1][6], rank[x-1][7], rank1_id_name[x-1][0], rank1_id_name[x-1][1],"",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 					j = j+1
 			elif x == m+3:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x], oct[x],
-							"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "", "", "Octant ID", "Octant Name", "Count of Rank 1 Mod values", "", "",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "", "", "Octant ID", "Octant Name", "Count of Rank 1 Mod values", "", "",'',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+4:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x],
-							oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "1", "Internal Outward Interaction", sn1, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "1", "Internal Outward Interaction", sn1, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+5:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x],
-							oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","","-1", "External Outward Interaction", sn2, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","","-1", "External Outward Interaction", sn2, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+6:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x],
-							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "", "", "2", "External Ejection", sn3, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "", "", "2", "External Ejection", sn3, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+7:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x],
-							w2[x], oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "-2", "Internal Ejection", sn4, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							w2[x], oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "-2", "Internal Ejection", sn4, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+8:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x],
-							oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","" ,"3", "External inward Interaction", sn5, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							oct[x],"", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","" ,"3", "External inward Interaction", sn5, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+9:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x], w2[x],
-							oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "", "","-3", "Internal inward Interaction", sn6, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "", "","-3", "Internal inward Interaction", sn6, "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+10:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x],
-							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "4", "Internal Sweep", sn7, "", "", '',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "4", "Internal Sweep", sn7, "", "", '',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			elif x == m+11:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x],
-							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "-4", "External Sweep", sn8, "", "", '',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "-4", "External Sweep", sn8, "", "", '',row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			else:  # Printing the else data
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x],
-							v2[x], w2[x], oct[x],  "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "", "", "", "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2]])
+							v2[x], w2[x], oct[x],  "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "", "", "", "", "",'', row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			
 		for i in rows:
 			sheet.append(i)
