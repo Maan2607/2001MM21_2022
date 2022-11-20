@@ -1036,7 +1036,7 @@ def octant_analysis(mod=5000):
 			elif x == m+11:  # Printing the table of count of diffent rank 1 octants
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x], v2[x],
 							w2[x], oct[x], "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "-4", "External Sweep", sn8, "", "", row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
-			else:  # Printing the else data
+			else:  # Printing  the else data
 				rows.append([time1[x], u1[x], v1[x], w1[x], "", "", "", u2[x],
 							v2[x], w2[x], oct[x],  "", "", "", "", "", "" ,"", "", "", "" ,"", "", "", "", "", "","", "", "", "", "", "", row[x+2][0],row[x+2][1],row[x+2][2],row[x+2][3],row[x+2][4],row[x+2][5],row[x+2][6],row[x+2][7],row[x+2][8],row[x+2][9],"",tu3[x][0],tu3[x][1],tu3[x][2],"",e1[x],b1[x],d1[x]])
 			
