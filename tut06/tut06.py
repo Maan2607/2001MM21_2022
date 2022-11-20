@@ -1,9 +1,12 @@
-
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 ## THIS CODE WILL TAKE A BIT LONGER TIME APPROX. = 1 MINUTE
 from datetime import datetime
 from unicodedata import name
 start_time = datetime.now()
+
 
 def attendance_report():
 ###Code
@@ -115,8 +118,85 @@ def attendance_report():
   for w in rows:
    sheet.append(w)
   book.save( "Attendance_report_consolidated" + ".xlsx")  # Making of a full report of all the students
+  
+
+            
+def send_mail():
+    
+    import smtplib
+    import email.encoders
+    import base64
+    
+    from email import encoders
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+    from email.mime.base import MIMEBase
+    from mimetypes import guess_type
+    
+    from email.encoders import encode_base64
+    from getpass import getpass
+    from smtplib import SMTP
+
+    fromaddr = input("Enter Mail Id: ")
+    toaddr = "cs3842022@gmail.com"
+    Password_ = input("Enter Password: ")
+
+    # instance of MIMEMultipart
+    msg = MIMEMultipart()
+
+    # storing the senders email address
+    msg['From'] = fromaddr
+
+    # storing the receivers email address
+    msg['To'] = toaddr
+
+    # storing the subject
+    msg['Subject'] = "Attendance Report Consolidated"
+
+    # string to store the body of the mail
+    body = "Dear Sir,\n\nPlease find below attached file.\n\nWarm Regards\nMantaran Singh\n2001MM21"
+
+    # attach the body with the msg instance
+    msg.attach(MIMEText(body, 'plain'))
+
+    # open the file to be sent
+    filename = 'attendance_report_consolidated.xlsx'
+    attachment = open("attendance_report_consolidated.xlsx", "rb")
+
+    # instance of MIMEBase and named as p
+    p = MIMEBase('application', 'octet-stream')
+
+    # To change the payload into encoded form
+    p.set_payload((attachment).read())
+
+    # encode into base64
+    encoders.encode_base64(p)
+
+    p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+
+    # attach the instance 'p' to instance 'msg'
+    msg.attach(p)
+
+    # creates SMTP session
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+
+    # start TLS for security
+    s.starttls()
+
+    # Authentication
+    s.login(fromaddr, Password_)
+
+    # Converts the Multipart msg into a string
+    text = msg.as_string()
+
+    # sending the mail
+    s.sendmail(fromaddr, toaddr, text)
+
+    # terminating the session
+    s.quit()
 
 attendance_report()
+send_mail()
 
 
 #This shall be the last lines of the code.
