@@ -1047,7 +1047,7 @@ def octant_analysis(mod=5000):
 		sheet.conditional_formatting.add(f"W4:AE{2+(n-2)//mod+4}", CellIsRule(operator='equal', formula=[1], fill=maan))
 		thin_border = Border(left=Side(style='thin'), right=Side(style='thin'),top=Side(style='thin'), bottom=Side(style='thin'))
 		p=4
-		f=len(e1)-1000
+		f=len(e1)-1001
 		for x in range(2+(n-2)//mod):
 			for y in range(35,44):
 				sheet.cell(row=p-1, column=y).border = thin_border
