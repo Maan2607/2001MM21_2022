@@ -323,3 +323,77 @@ for key in ind_batter.keys():
     names_ind_batters.append(key)
 
 
+for i in range(len(ind_batter)):
+    sheet.cell(31+i,1).value = names_ind_batters[i]
+    sheet.cell(31+i,5).value = ind_batter[names_ind_batters[i]][0]
+    sheet.cell(31+i,6).value = ind_batter[names_ind_batters[i]][1]
+    sheet.cell(31+i,7).value = ind_batter[names_ind_batters[i]][2]
+    sheet.cell(31+i,8).value = ind_batter[names_ind_batters[i]][3]
+    sheet.cell(31+i,9).value = ind_batter[names_ind_batters[i]][4]
+
+    if names_ind_batters[i] not in out_ind_bat:
+        sheet.cell(31+i,3).value = "not out"
+    else:
+        sheet.cell(31+i,3).value=out_ind_bat[names_ind_batters[i]]
+
+sheet["A29"] = "BATTERS"
+sheet["E29"] = "RUNS"
+sheet["F29"] = "BALLS"
+sheet["G29"] = " 4s "
+sheet["H29"] = " 6s "
+sheet["I29"] = "  SR  "
+
+# india bowling stats
+
+sheet["A40"] = "BOWLER"
+sheet["C40"] = "OVER"
+sheet["D40"] = "MAIDEN"
+sheet["E40"] = "RUNS"
+sheet["F40"] = "WICKET"
+sheet["G40"] = "NO-BALL"
+sheet["H40"] = "WIDE"
+sheet["I40"] = "ECONOMY"
+
+Ind_bN=[]
+for key in ind_bowlers.keys():
+    Ind_bN.append(key)
+
+for i in range(len(ind_bowlers)):
+
+    sheet.cell(20+i,1).value = Ind_bN[i]
+    sheet.cell(20+i,3).value = ind_bowlers[Ind_bN[i]][0]
+    sheet.cell(20+i,4).value = ind_bowlers[Ind_bN[i]][1]
+    sheet.cell(20+i,5).value = ind_bowlers[Ind_bN[i]][2]
+    sheet.cell(20+i,6).value = ind_bowlers[Ind_bN[i]][3]
+    sheet.cell(20+i,7).value = ind_bowlers[Ind_bN[i]][4]
+    sheet.cell(20+i,8).value = ind_bowlers[Ind_bN[i]][5]
+    sheet.cell(20+i,9).value = ind_bowlers[Ind_bN[i]][6]
+    ind_bowlers_total+=ind_bowlers[Ind_bN[i]][2]
+    pak_fow+=ind_bowlers[Ind_bN[i]][3]
+
+ind_total_score=ind_bowlers_total+pak_byes+1
+pak_total_score = pak_bt+ind_byes-1
+
+
+sheet["E27"] = " "+str(ind_total_score) +" - " + str(ind_fow)
+sheet["F27"] = str(over_ind)
+E1=" "+str(pak_total_score) +" - " + str(pak_fow)
+F1 = str(over_pak)
+
+wb.save("Scoreboard.xlsx")
+
+df = pd.read_excel('Scoreboard.xlsx')
+
+df = df.set_axis(['PAKISTAN', ' INNINGS'] + [" "," ",E1,F1," "," "," "], axis='columns')
+
+df.to_csv('Scorecard.csv',index=False)
+
+import os
+
+os.path.exists("Scoreboard.xlsx") 
+os.remove("Scoreboard.xlsx") 
+
+scorecard()
+
+end_time = datetime.now()
+print('Duration of Program Execution: {}'.format(end_time - start_time))
