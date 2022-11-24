@@ -26,7 +26,7 @@ def attendance_report():
     stu_name.append(row[1])   #making a list of registered Name
    n=n+1 
   n=n-1
- dat =["28/07","01/08","04/08","08/08","11/08","15/08","18/08","22/08","25/08","29/08","01/09","05/09","08/09","12/09","15/09","26/09","29/09"]
+ dat =["28-07","01-08","04-08","08-08","11-08","15-08","18-08","22-08","25-08","29-08","01-09","05-09","08-09","12-09","15-09","26-09","29-09"]
  # dat list will give all the dates on which classes were conducted
  s=len(dat) 
 
@@ -93,7 +93,7 @@ def attendance_report():
   z.append("Total Real")
   z.append("% Attendance")
   rows.append(z) 
-
+  
   z=["(Sorted by roll no.)","","Atleast one real P"] # Initializing 2nd row
   for i in range(0,s-1): # using this loop we are making 2nd row
    z.append("")
