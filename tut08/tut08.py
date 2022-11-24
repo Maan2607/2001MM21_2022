@@ -226,3 +226,100 @@ for l in lst_ind:
             pak_bowlers[f"{running_ball[0].strip()}"][5]+=1
 
 
+for val in ind_batter.values():
+    val[-1]=round((val[0]/val[1])*100 , 2)
+
+for val in pak_bats.values():
+    val[-1]=round((val[0]/val[1])*100 , 2)
+
+for val in ind_bowlers.values():
+    if val[0]%6==0:
+        val[0] = val[0]//6
+    else:
+        val[0] = (val[0]//6) + (val[0]%6)/10
+
+for val in pak_bowlers.values():
+    if val[0]%6==0:
+        val[0] = val[0]//6
+    else:
+        val[0] = (val[0]//6) + (val[0]%6)/10
+
+for val in ind_bowlers.values(): #economy
+    x=str(val[0])
+    if "." in x:
+        balls = int(x[0])*6 + int(x[2])
+        val[-1]=round((val[2]/balls)*6,1)
+    else:
+        val[-1] = round((val[2]/val[0]) ,1) 
+
+
+for val in pak_bowlers.values(): #economy
+    x=str(val[0])
+    if "." in x:
+        balls = int(x[0])*6 + int(x[2])
+        val[-1]=round((val[2]/balls)*6,1)
+    else:
+        val[-1] = round((val[2]/val[0]) ,1)
+
+
+# pakistan batting starts
+names_pak_batters=[]
+for key in pak_bats.keys():
+    names_pak_batters.append(key)
+
+
+for i in range(len(pak_bats)):
+    sheet.cell(5+i,1).value = names_pak_batters[i]
+    sheet.cell(5+i,5).value = pak_bats[names_pak_batters[i]][0]
+    sheet.cell(5+i,6).value = pak_bats[names_pak_batters[i]][1]
+    sheet.cell(5+i,7).value = pak_bats[names_pak_batters[i]][2]
+    sheet.cell(5+i,8).value = pak_bats[names_pak_batters[i]][3]
+    sheet.cell(5+i,9).value = pak_bats[names_pak_batters[i]][4]
+    if names_pak_batters[i] not in out_pb:
+        sheet.cell(5+i,3).value = "not out"
+    else:
+        sheet.cell(5+i,3).value=out_pb[names_pak_batters[i]]
+ 
+sheet.cell(3,1).value = "BATTERS"          #printing batting stats
+sheet["E3"] = "RUNS"
+sheet["F3"] = "BALLS"
+sheet["G3"] = " 4s "
+sheet["H3"] = " 6s "
+sheet["I3"] = "  SR  "
+
+# india bowling stats
+
+sheet["A18"] = "BOWLER"
+sheet["C18"] = "OVER"
+sheet["D18"] = "MAIDEN"
+sheet["E18"] = "RUNS"
+sheet["F18"] = "WICKET"
+sheet["G18"] = "NO-BALL"
+sheet["H18"] = "WIDE"
+sheet["I18"] = "ECONOMY"
+
+Pak_BN=[]
+for key in pak_bowlers.keys():
+    Pak_BN.append(key)
+
+for i in range(len(pak_bowlers)):                      #printing pakistan bowling stats
+    sheet.cell(42+i,1).value = Pak_BN[i]
+    sheet.cell(42+i,3).value = pak_bowlers[Pak_BN[i]][0]
+    sheet.cell(42+i,4).value = pak_bowlers[Pak_BN[i]][1]
+    sheet.cell(42+i,5).value = pak_bowlers[Pak_BN[i]][2]
+    sheet.cell(42+i,6).value = pak_bowlers[Pak_BN[i]][3]
+    sheet.cell(42+i,7).value = pak_bowlers[Pak_BN[i]][4]
+    sheet.cell(42+i,8).value = pak_bowlers[Pak_BN[i]][5]
+    sheet.cell(42+i,9).value = pak_bowlers[Pak_BN[i]][6]
+    pak_bt+=pak_bowlers[Pak_BN[i]][2]
+    ind_fow+=pak_bowlers[Pak_BN[i]][3]
+
+# india batting  stats
+sheet.cell(11+len(pak_bats)+len(pak_bowlers),1).value = "# INDIA"
+sheet.cell(11+len(pak_bats)+len(pak_bowlers),2).value = " INNINGS"
+
+names_ind_batters=[]
+for key in ind_batter.keys():
+    names_ind_batters.append(key)
+
+
